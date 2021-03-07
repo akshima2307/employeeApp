@@ -1,5 +1,6 @@
 import React from 'react';  
-import {TouchableOpacity, ImageBackground, StyleSheet,Text, TextInput , Image, KeyboardAvoidingView } from 'react-native';
+import {Dimensions,TouchableOpacity, ImageBackground, StyleSheet,Text, TextInput , Image, KeyboardAvoidingView } from 'react-native';
+import { Header } from 'react-navigation-stack';
 
 export default function LogIn({navigation}) {
         let Image_Http_URL ={ uri: 'https://www.latestlaws.com/media/2019/05/delhi-high-court-logo.png'};  
@@ -8,8 +9,8 @@ export default function LogIn({navigation}) {
             navigation.navigate('Home');
         }
         return (
-            <KeyboardAvoidingView style={{flex: 1}} behavior='padding'>
-                <ImageBackground style={styles.background}  source={require('./images/background1.jpeg')} style={styles.container} >
+            <KeyboardAvoidingView style={{flex: 1}}>
+                <ImageBackground  source={require('./images/background1.jpeg')} style={styles.container} >
                         <Image style={styles.logo} source={Image_Http_URL}  />
                         <Text style={styles.heading} >WELCOME TO DELHI HIGH COURT</Text>
                         <TextInput 
@@ -33,6 +34,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         resizeMode: 'cover',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
     },
     logo:{
         marginTop: 20,
